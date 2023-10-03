@@ -1,0 +1,32 @@
+body {
+    background: linear-gradient(to bottom, #CCCCCC 65%, #999999);
+}
+.colored-box {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 10px;
+}
+.box-container {
+    width: 300px; 
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    transform: rotate(45deg);
+}
+#box1 {
+    background-color: #FF6B6B;
+}
+
+#box2 {
+    background-color: #007BFF;
+}
+
+#box3 {
+    background-color: #8AA39B;
+}
+#box4 {
+    background-color: #FFD700; 
+}
