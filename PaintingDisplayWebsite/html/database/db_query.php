@@ -16,6 +16,20 @@
             $sql .= " WHERE style = :style";
             $params['style'] = $selectedStyle;
         }
+    } else if (isset($_GET['paintingTitle'])){
+        $paintingTitle = $_GET['paintingTitle'];
+
+        if (!empty($paintingTitle)) {
+            $sql .= " WHERE paintingTitle LIKE :paintingTitle";
+            $params['paintingTitle'] = "%" . $paintingTitle . "%";
+        }
+    } else if (isset($_GET['paintingID'])) {
+        $paintingID = $_GET['paintingID'];
+        
+        if (!empty($paintingID)) {
+            $sql .= " WHERE paintingID = :paintingID";
+            $params['paintingID'] = $paintingID;
+        }
     }
 
     // Prepare the SQL statement
@@ -26,4 +40,5 @@
 
     // Fetch results as an associative array
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>

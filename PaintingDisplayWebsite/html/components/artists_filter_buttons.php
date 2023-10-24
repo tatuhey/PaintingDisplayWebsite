@@ -1,57 +1,47 @@
 <style>
-            
-            .filter-form {
-                background-color: #F2F2F2;
-                border-radius: 5px;
-                padding: 15px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
+    .filter-form {
+        
+        border-radius: 5px;
+        padding: 15px;
 
-            }
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
-
-            label {
-                font-weight: bold;
-                margin-right: 10px;
-                color: #333;
-            }
-
-            .filters {
-                display: flex;
-                flex-direction: column;
-                
-            }
-
-            select.custom-select {
-                width: 100%;
-                max-width: 200px; 
-                padding: 8px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                background-color: #fff;
-            }
-
-            .btn-apply-filters {
-                width: 100%;
-                max-width: 200px; 
-                padding: 10px;
-                border: none;
-                background-color: #007BFF; 
-                color: #fff;
-                border-radius: 4px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
-
-
-            .btn-apply-filters:hover {
-                background-color: #0056b3; 
-            }
-            
-        </style>
-
+    }
+    label {
+        font-weight: bold;
+        margin-right: 10px;
+        color: #333;
+    }
+    .filters {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    select.custom-select {
+        width: 100%;
+        max-width: 200px; 
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+    }
+    .btn-apply-filters {
+        width: 100%;
+        max-width: 200px; 
+        padding: 10px;
+        border: none;
+        background-color: #007BFF; 
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .btn-apply-filters:hover {
+        background-color: #0056b3; 
+    } 
+</style>
 
 <div class="container mt-5">
     <div class="row">
@@ -82,8 +72,6 @@
             $periods = $periodsStmt->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
-
-
         <form class="form-inline filter-form" action="artists.php" method="get">
             <div class="d-flex flex-column mb-3" id="filters">
                 <div class="form-group mr-3">
@@ -99,7 +87,7 @@
                     </select>
                 </div>
                 <div class="form-group mr-3">
-                    <label for="filterPeriod" class="mr-2">Filter by Period:</label>
+                    <label for="filterPeriod" class="mr-2">Filter by Period: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <select class="custom-select" id="filterPeriod" name="period" onchange="submitForm()">
                         <option value="">All Periods &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </option>
                         <?php

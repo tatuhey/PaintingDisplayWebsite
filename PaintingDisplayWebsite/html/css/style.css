@@ -1,6 +1,10 @@
 body {
     background: linear-gradient(to bottom, #CCCCCC 65%, #999999);
+    background-attachment: fixed;
+    background-size: cover; /* Add this line to set a fixed size */
 }
+
+
 .colored-box {
     width: 100px;
     height: 100px;

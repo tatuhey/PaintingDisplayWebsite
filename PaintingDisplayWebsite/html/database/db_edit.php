@@ -15,7 +15,7 @@ if (isset($_GET['paintingID'])) {
 
     try {
         // Query to fetch painting details based on paintingID
-        $sql = "SELECT * FROM painting WHERE paintingID = :paintingID";
+        $sql = "SELECT * FROM paintings WHERE paintingID = :paintingID";
 
         // Prepare and execute the query using prepared statements
         $stmt = $conn->prepare($sql);
@@ -28,7 +28,7 @@ if (isset($_GET['paintingID'])) {
         $paintingID = $row["paintingID"];
         $paintingTitle = $row["paintingTitle"];
         $finishedYear = $row["finishedYear"];
-        $paintMedia = $row["paintMedia"];
+        $paintMedia = $row["media"];
         $artistName = $row["artistName"];
         $style = $row["style"];
 
@@ -43,14 +43,14 @@ if (isset($_GET['paintingID'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateEntry"])) {
     $paintingTitle = $_POST["paintingTitle"];
     $finishedYear = $_POST["finishedYear"];
-    $paintMedia = $_POST["paintMedia"];
+    $paintMedia = $_POST["media"];
     $artistName = $_POST["artistName"];
     $style = $_POST["style"];
     $paintingID = $_POST["paintingID"];
 
     try {
         // Update query
-        $updateSql = "UPDATE painting SET paintingTitle=?, finishedYear=?, paintMedia=?, artistName=?, style=? WHERE paintingID=?";
+        $updateSql = "UPDATE paintings SET paintingTitle=?, finishedYear=?, media=?, artistName=?, style=? WHERE paintingID=?";
             
         // Prepare and execute the update query using prepared statements
         $updateStmt = $conn->prepare($updateSql);
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateEntry"])) {
 
 
         if ($updateStmt->execute()) {
-            include('paintings.php');
+            header("Location: ../html/paintings.php");
         } else {
             echo "Error updating painting details: " . $updateStmt->errorInfo()[2];
         }

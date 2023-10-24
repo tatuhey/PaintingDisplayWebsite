@@ -12,21 +12,62 @@
 <body>
     <!-- Navbar -->
     <?php include('components/navbar.php'); ?>
-
     <!-- Paintings Filter -->
-    <?php include('components/paintings_buttons.php'); ?>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Add button -->
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div class="mb-4">
+                    <a href="upload.php" class="btn btn-success btn-lg rounded-pill px-4 py-2">
+                        <i class="fas fa-plus-circle mr-2"></i> Add New Entry
+                    </a>
+                </div>
+            </div>
+            <!-- Filter buttons -->
+            <div class="col-md-6">
+                
+                <?php include('components/filter_buttons.php'); ?>
+                
+            </div>
+        </div>
+    </div>
+    <div class="vh-100 d-flex justify-content-center">
 
-    <!-- if you cant see pictures remake the table from document-->
-
-    <div class="vh-100 d-flex">
         <div class="container main-content">
-            <div class="row">
+            <div class="">
 
-                <?php
+            <?php include('database/db_query.php'); ?>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Painting Title</th>
+                                    <th>Finished Year</th>
+                                    <th>Media</th>
+                                    <th>Artist</th>
+                                    <th>Style</th>
+                                    <th>Image</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                if ($result && $stmt->rowCount() > 0) {
+                                    foreach ($result as $row) {
+                                        include('components/table_content.php');
+                                    }
+                                } else {
+                                    echo '<tr><td colspan="7">No results found.</td></tr>';
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
-                    // display
-                    include('components/table_structure.php');
-                ?>
 
             </div>
         </div>

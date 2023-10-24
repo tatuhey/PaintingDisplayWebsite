@@ -5,7 +5,7 @@
     $paintingTitle = '%' . $_POST['paintingTitle'] . '%';
 
     // Select with search term using a prepared statement
-    $sql = "SELECT * FROM painting WHERE paintingTitle LIKE :paintingTitle";
+    $sql = "SELECT * FROM paintings WHERE paintingTitle LIKE :paintingTitle";
     $stmt = $conn->prepare($sql);
 
     // Bind the search term parameter and execute

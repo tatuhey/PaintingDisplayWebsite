@@ -11,6 +11,18 @@
 
     <?php include('components/navbar.php'); ?>
 
+    <?php
+    include('../html/database/db_connect.php');
+
+    // Query to fetch distinct artist names
+    $artistQuery = "SELECT * from artists";
+    $artistStmt = $conn->prepare($artistQuery);
+    $artistStmt->execute();
+    $artists = $artistStmt->fetchAll(PDO::FETCH_ASSOC);
+    ?>
+
+
+
     <section id="tabs" class="project-tab">
         <div class="container">
             <div class="row">
@@ -36,8 +48,20 @@
 
                         <div class="form-group">
                             <label for="artistName"><h4>Artist Name:</h4></label>
-                            <input type="text" class="form-control" name="artistName" required>
+                            <select class="custom-select" id="filterArtist" name="artistId">
+                                <option value="" disabled>All Artists &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                                <?php
+                                foreach ($artists as $artistRow) {
+                                    $artistName = $artistRow['artistName'];
+                                	$artistId = $artistRow['artistId'];
+                                
+                                    echo "<option value=\"$artistId\">$artistName</option>";
+
+                                }
+                                ?>
+                            </select>
                         </div>
+                        
 
                         <div class="form-group">
                             <label for="style"><h4>Style:</h4></label>

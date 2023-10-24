@@ -2,19 +2,19 @@
 include('db_connect.php');
 
 if (isset($_POST['deleteEntry'])) {
-    $paintingID = $_POST['paintingID'];
+    $artistName = $_POST['artistName'];
 
     try {
         // Create a DELETE query using prepared statements
-        $sql = "DELETE FROM paintings WHERE paintingID = :paintingID";
+        $sql = "DELETE FROM artists WHERE artistName = :artistName";
 
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':paintingID', $paintingID, PDO::PARAM_STR);
+        $stmt->bindParam(':artistName', $artistName, PDO::PARAM_STR);
 
         // Execute the query
         if ($stmt->execute()) {
             // Entry deleted successfully
-            header("Location: ../paintings.php"); // Redirect back to the paintings.php page
+            header("Location: ../artists.php"); // Redirect back to the paintings.php page
             exit();
         } else {
             // Error occurred while deleting

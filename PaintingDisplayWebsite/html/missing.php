@@ -10,13 +10,17 @@
 </head>
 <body>
     <?php include('components/navbar.php'); ?>
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 offset-md-3">
-            <h1>Image is not found.</h1>
+
+
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+        <div class="d-flex flex-column">    
+            <div class="row">
+                    <div class="col-md-8 offset-md-3">
+                        <h1>Image is not found.</h1>
+                    </div>
+                </div>
+                <a href="../paintings.php" class="btn btn-primary">Back</a> 
+            </div>
         </div>
-    </div>
-    <a href="../paintings.php" class="btn btn-primary">Back</a> 
-</div>
 </body>
 </html>

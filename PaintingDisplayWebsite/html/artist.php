@@ -38,7 +38,7 @@
     <!-- Navbar -->
     <?php include('components/navbar.php'); ?>
 
-    <?php include('database/db_query.php');
+    <?php include('database/db_query_artists.php');
     if (!empty($result) && isset($result[0])) {
         $results = $result[0]; 
     }
@@ -48,14 +48,12 @@
         <div id="content" class="container d-flex justify-content-between">
 
             <div class="col-md-6">
-                <h2 class="mb-4"><?php echo $results['paintingTitle']; ?></h2>
+                <h2 class="mb-4"><?php echo $results['artistName']; ?></h2>
                 <ul class="list-unstyled">
-                    <li><strong>Artist Name:</strong> <?php echo $results['artistName']; ?></li>
-                    <li><strong>Style:</strong> <?php echo $results['style']; ?></li>
-                    <li><strong>Finished Year:</strong> <?php echo $results['finishedYear']; ?></li>
-                    <li><strong>Paint Media:</strong> <?php echo $results['media']; ?></li>
+                    <li><strong>Lifespan:</strong> <?php echo $results['lifespan']; ?></li>
+                    <li><strong>Nationality:</strong> <?php echo $results['nationality']; ?></li>
                 </ul>
-                <a href="../html/paintings.php" class="btn btn-primary">Back</a> 
+                <a href="../html/artists.php" class="btn btn-primary">Back</a> 
             </div>
 
 

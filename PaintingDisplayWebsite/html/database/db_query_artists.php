@@ -2,19 +2,25 @@
     // connect
     include('db_connect.php');
     // Set query
-    $sql = "SELECT * FROM painting";
+    $sql = "SELECT * FROM artists";
     $params = array();
 
-    if (isset($_GET['artist']) || isset($_GET['style'])) {
+    if (isset($_GET['nationality']) || isset($_GET['period'])) {
         // Artist filter
-        $selectedArtist = $_GET['artist'];
-        $selectedStyle = $_GET['style'];
-        if (!empty($selectedArtist)) {
-            $sql .= " WHERE artistName = :artistName";
-            $params['artistName'] = $selectedArtist;
-        } elseif (!empty($selectedStyle)) {
-            $sql .= " WHERE style = :style";
-            $params['style'] = $selectedStyle;
+        $selectedNationality = $_GET['nationality'];
+        $selectedPeriod = $_GET['period'];
+        if (!empty($selectedNationality)) {
+            $sql .= " WHERE nationality = :nationality";
+            $params['nationality'] = $selectedNationality;
+        } elseif (!empty($selectedPeriod)) {
+            $sql .= " WHERE period = :period";
+            $params['period'] = $selectedPeriod;
+        }
+    } else if (isset($_GET['artistName'])) {
+    	$selectedArtist = $_GET['artistName'];
+    	if (!empty($selectedArtist)) {
+        	$sql .= " WHERE artistName = :artistName";
+        	$params['artistName'] = $selectedArtist;
         }
     }
 

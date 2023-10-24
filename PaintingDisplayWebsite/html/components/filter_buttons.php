@@ -1,10 +1,10 @@
 <style>
     
     .filter-form {
-        background-color: #F2F2F2;
+        
         border-radius: 5px;
         padding: 15px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -84,7 +84,7 @@
             </select>
         </div>
         <div class="form-group mr-3">
-            <label for="filterStyle" class="mr-2">Filter by Style:</label>
+            <label for="filterStyle" class="mr-2">Filter by Style:&nbsp;</label>
             <select class="custom-select" id="filterStyle" name="style" onchange="submitForm()">
                 <option value="">All Styles &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </option>
                 <?php

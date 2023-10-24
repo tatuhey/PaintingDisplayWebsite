@@ -14,19 +14,42 @@
     <?php include('components/navbar.php'); ?>
 
     <!-- Paintings Filter -->
-    <?php include('components/artists_buttons.php'); ?>
+    <?php include('components/artists_filter_buttons.php'); ?>
 
     <!-- if you cant see pictures remake the table from document-->
 
-    <div class="vh-100 d-flex">
+    <div class="d-flex">
         <div class="container main-content">
-            <div class="row">
+            <div class="">
 
-                <?php
-
-                    // display
-                    include('components/table_structure_artists.php');
-                ?>
+            <?php include('database/db_query_artists.php'); ?>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                <th>Artist Name</th>
+                                <th>Lifespan</th>
+                                <th>Nationality</th>
+                                <th>Thumbnail</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                            if ($result && $stmt->rowCount() > 0) {
+                                foreach ($result as $row) {
+                                    include('components/table_content_artists.php');
+                                }
+                            } else {
+                                echo '<tr><td colspan="6">0 results</td></tr>';
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
             </div>
         </div>

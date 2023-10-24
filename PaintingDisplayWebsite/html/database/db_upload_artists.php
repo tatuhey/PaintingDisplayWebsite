@@ -8,11 +8,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $period = $_POST["period"];
 
     // Check if an image file was uploaded
-    if (isset($_FILES['paintingImage'])) {
-        $imageData = file_get_contents($_FILES['paintingImage']['tmp_name']);
+    if (isset($_FILES['image'])) {
+        $imageData = file_get_contents($_FILES['image']['tmp_name']);
         
         // Prepare the SQL statement with placeholders
-        $sql = "INSERT INTO artists (artistName, lifespan, nationality, period, paintingImage) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO artists (artistName, lifespan, nationality, period, image) VALUES (?, ?, ?, ?, ?)";
         
         try {
             // Create a prepared statement
